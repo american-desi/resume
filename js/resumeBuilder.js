@@ -50,6 +50,8 @@ bio.display = function(){
 	formattedLocation = formattedLocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
 	$("#footerContacts").append(formattedLocation);
+	var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$('#header').append(formattedWelcome);
 	
 };
 
@@ -62,7 +64,7 @@ var education = {
 			"location": "Queens, NY",
 			"degree": "BA",
 			"majors" : ["Economics", "Elementary Ed"],
-			"dates" : "September 2016- June 2018",
+			"dates" : "09-01-16 to 06-01-18",
 			"url" : "link string"
 		},
 		{
@@ -70,14 +72,14 @@ var education = {
 		"location": "New York, New York",
 		"degree": "BS",
 		"majors": ["Computer Engineering"],
-		"dates" : "September 2018- June 2020",
+		"dates" : "09-01-18 to 06-01-20",
 		"url" : "link string" 
 		}
 	],
 	"onlineCourses": [{
 		"title" : "Front End Web Developer Nanodegree",
 		"school" : "Udacity",
-		"date" : 2016,
+		"date" : "03-15-16 to 04-16-16",
 		"url" : "www.udacity.com"
 
 	}]
@@ -89,30 +91,30 @@ var work = {
 			"title": "Lifeguard",
 			"employer": "YMCA",
 			"location" : "New Rochelle, NY, USA",
-			"dates": "March 2016- June 2016",
+			"dates": "03-01-16 - 06-01-16",
 			"description" : "I guard the pool!"
 		},
 		{
 			"title": "Human Behavioral Research Specialist",
 			"employer": "UConn Neag",
 			"location" : "Storrs, CT, USA",
-			"dates": "September 2015-December 2015",
+			"dates": "09-01-15 - 12-01-15",
 			"description" : "I study 3rd graders!"
 		}
 	]
 };
 
 var projects = {
-	"frontend": [
+	"projects": [ //FIX PROJECTS PROJECTS IN DISPLAY FUNCTION
 		{
 			"title" : "Portfolio Site",
-			"date" : "June 2015",
+			"date" : "06-01-15",
 			"description" : "I basically built a portofolio website.",
 			"images" : ['image/google.png']
 		},
 		{
 			"title" : "Resume Site",
-			"date" : "June 2016",
+			"date" : "06-01-16",
 			"description" : "I built a resume website.",
 			"images" : ['image/google.png']
 		}
@@ -133,13 +135,27 @@ education.display = function(){
 		var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
 		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 
+
+
 		$(".education-entry:last").append(formattedName);
 		$(".education-entry:last").append(formattedLocation);
 		$(".education-entry:last").append(formattedDegree);
 		$(".education-entry:last").append(formattedMajors);
 		$(".education-entry:last").append(formattedDates);
+	}
+	$(".education-entry:last").append(HTMLonlineClasses)
 
+	for (course in education.onlineCourses) {
 
+		var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+		var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+		var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
+		var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+
+		$(".education-entry:last").append(formattedTitle);
+		$(".education-entry:last").append(formattedSchool);
+		$(".education-entry:last").append(formattedDate);
+		$(".education-entry:last").append(formattedURL);
 	}
 };
 
@@ -166,21 +182,21 @@ work.display = function(){
 work.display();
 
 projects.display = function() {
-	for (project in projects.frontend) {
+	for (project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.frontend[project].title);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
 		$(".project-entry:last").append(formattedTitle);
 
-		var formattedDate = HTMLprojectDates.replace("%data%", projects.frontend[project].date);
+		var formattedDate = HTMLprojectDates.replace("%data%", projects.projects[project].date);
 		$(".project-entry:last").append(formattedDate);
 
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.frontend[project].description);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedDescription);
 
-		if (projects.frontend[project].images.length > 0) {
-			for (image in projects.frontend[project].image) {
-				var formattedImage = HTMLprojectImage.replace("%data%", projects.frontend[project].image[image]);
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].image) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].image[image]);
 				$(".project-entry:last").append(formattedImage);
 			};
 		};
