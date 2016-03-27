@@ -12,7 +12,7 @@ var bio = {
 		"chilling", "sleeping", "napping", "lounging"
 
 	],
-	"biopic" : "images/fry.jpg",
+	"biopic" : '',
 	"welcomeMessage" : "Welcome to my site!",
 };
 
@@ -38,6 +38,10 @@ bio.display = function(){
 	$("#skills").append(formattedSkill);
 
 	}
+
+	//var HTMLbioPic = '<img src="%data%" class="biopic">';
+	//$("#topContacts: last").append(HTMLbioPic);
+
 
 	var formattedEmail = HTMLcontactGeneric.replace("%contact%", "email: ");
 	formattedEmail = formattedEmail.replace("%data%", bio.contacts.email);
@@ -65,7 +69,7 @@ var education = {
 			"location": "Queens, NY",
 			"degree": "BA",
 			"majors" : ["Economics", "Elementary Ed"],
-			"dates" : "09-01-16 to 06-01-18",
+			"dates" : "09/01/16 - 06/01/18",
 			"url" : "link string"
 		},
 		{
@@ -73,14 +77,14 @@ var education = {
 		"location": "New York, New York",
 		"degree": "BS",
 		"majors": ["Computer Engineering"],
-		"dates" : "09-01-18 to 06-01-20",
+		"dates" : "09/01/18 - 06/01/20",
 		"url" : "link string" 
 		}
 	],
 	"onlineCourses": [{
 		"title" : "Front End Web Developer Nanodegree",
 		"school" : "Udacity",
-		"date" : "03-15-16 to 04-16-16",
+		"date" : "03/15/16 - 04/16/16",
 		"url" : "www.udacity.com"
 
 	}]
@@ -92,14 +96,14 @@ var work = {
 			"title": "Lifeguard",
 			"employer": "YMCA",
 			"location" : "New Rochelle, NY, USA",
-			"dates": "03-01-16 - 06-01-16",
+			"dates": "03/01/16 - 06/01/16",
 			"description" : "I guard the pool!"
 		},
 		{
 			"title": "Human Behavioral Research Specialist",
 			"employer": "UConn Neag",
 			"location" : "Storrs, CT, USA",
-			"dates": "09-01-15 - 12-01-15",
+			"dates": "09/01/15 - 12/01/15",
 			"description" : "I study 3rd graders!"
 		}
 	]
@@ -111,13 +115,13 @@ var projects = {
 			"title" : "Portfolio Site",
 			"date" : "2015",
 			"description" : "I basically built a portofolio website.",
-			"images" : ['image/google.png']
+			"images" : ['images/google.png']
 		},
 		{
 			"title" : "Resume Site",
 			"date" : "2016",
 			"description" : "I built a resume website.",
-			"images" : ['image/google.png']
+			"images" : ['images/google.png']
 		}
 
 	]
@@ -138,9 +142,8 @@ education.display = function(){
 
 
 
-		$(".education-entry:last").append(formattedName);
+		$(".education-entry:last").append(formattedName + formattedDegree);
 		$(".education-entry:last").append(formattedLocation);
-		$(".education-entry:last").append(formattedDegree);
 		$(".education-entry:last").append(formattedMajors);
 		$(".education-entry:last").append(formattedDates);
 	}
@@ -196,8 +199,8 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedDescription);
 
 		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].image) {
-				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].image[image]);
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 				$(".project-entry:last").append(formattedImage);
 			};
 		};
