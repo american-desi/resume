@@ -1,17 +1,18 @@
 
 var bio = {
-	"name" : "Josh",
+	"name" : "Joshua Thomas",
 	"role" : "Front End Web Developer",
 	"contacts" : {
 		"email" : "joshuathomas096@gmail.com",
 		"github" : "https://github.com/joshuathomas096",
-		"location" : "New York, New York"
+		"location" : "New York, New York",
+		"mobile" : "377-393-4448"
 	},
 	"skills" : [
 		"chilling", "sleeping", "napping", "lounging"
 
 	],
-	"biopic" : "this is my biopic",
+	"biopic" : "images/fry.jpg",
 	"welcomeMessage" : "Welcome to my site!",
 };
 
@@ -108,13 +109,13 @@ var projects = {
 	"projects": [ //FIX PROJECTS PROJECTS IN DISPLAY FUNCTION
 		{
 			"title" : "Portfolio Site",
-			"date" : "06-01-15",
+			"date" : "2015",
 			"description" : "I basically built a portofolio website.",
 			"images" : ['image/google.png']
 		},
 		{
 			"title" : "Resume Site",
-			"date" : "06-01-16",
+			"date" : "2016",
 			"description" : "I built a resume website.",
 			"images" : ['image/google.png']
 		}
