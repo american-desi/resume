@@ -12,7 +12,7 @@ var bio = {
 		"chilling", "sleeping", "napping", "lounging"
 
 	],
-	"biopic" : '',
+	"biopic" : '<img src="images/fry.jpg">',
 	"welcomeMessage" : "Welcome to my site!",
 };
 
@@ -24,18 +24,23 @@ bio.display = function(){
 
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
+	$('#header').append(bio.biopic);
 
 	if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
-
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills").append(formattedSkill);
+		for (num in bio.skills) {
+			formattedSkill = HTMLskills.replace("%data%", bio.skills[num]);
+			$("#skills").append(formattedSkill);
+		}
+
+	
+	// formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+	// $("#skills").append(formattedSkill);
+	// formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+	// $("#skills").append(formattedSkill);
+	// formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+	// $("#skills").append(formattedSkill);
 
 	}
 
@@ -57,6 +62,7 @@ bio.display = function(){
 	$("#footerContacts").append(formattedLocation);
 	var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$('#header').append(formattedWelcome);
+	
 	
 };
 
@@ -113,13 +119,13 @@ var projects = {
 	"projects": [ //FIX PROJECTS PROJECTS IN DISPLAY FUNCTION
 		{
 			"title" : "Portfolio Site",
-			"date" : "2015",
+			"date" : "3/2/2016 - 3/5/2016",
 			"description" : "I basically built a portofolio website.",
 			"images" : ['images/google.png']
 		},
 		{
 			"title" : "Resume Site",
-			"date" : "2016",
+			"date" : "3/5/2016 - 3/10/2016",
 			"description" : "I built a resume website.",
 			"images" : ['images/google.png']
 		}
